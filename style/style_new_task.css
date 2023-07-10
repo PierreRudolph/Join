@@ -1,0 +1,785 @@
+/* === Styling of add_task.html === */
+.container-new-task {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: calc(100% - 232px);
+    height: calc(100vh - 89px);
+    padding: 17px 41px 0 41px;
+}
+
+/* === Styling for smaller screens/tablets === */
+
+@media (max-width: 992px) {
+    .container-new-task {
+        padding: 0;
+    }
+}
+
+/* === Styling for smartphones === */
+@media (max-width: 768px) {
+    .container-new-task {
+        font-size: 16px;
+    }
+}
+
+
+
+
+/* === Styling of template new_task.html === */
+/* === General Settings === */
+.d-none {
+    display: none !important;
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mobile-description {
+    display: none;
+}
+
+.margin-bottom-zero {
+    margin-bottom: 0 !important;
+}
+
+.margin-bottom-minus {
+    margin-bottom: -15px !important;
+}
+
+.margin-to-sides {
+    margin: 0 5px;
+}
+
+.new-task-card h1 {
+    font-size: 61px;
+    margin: 0;
+}
+
+.alert-color {
+    color: rgba(255, 0, 0, 0.44) !important;
+}
+
+.alert-height {
+    height: 16px !important;
+}
+
+/* === Category colors === */
+
+.orange {
+    background-color: #ff7a00;
+}
+
+.violet {
+    background-color: #fc71ff;
+}
+
+.cyan {
+    background-color: #1fd7c1;
+}
+
+.gold {
+    background-color: #ffc701;
+}
+
+.blue {
+    background-color: #0038ff;
+}
+
+.light-blue {
+    background-color: #8aa4ff;
+}
+
+.green {
+    background-color: #48d84f;
+}
+
+.red {
+    background-color: #e65252;
+}
+
+.highlight {
+    box-shadow: 1px 1px 6px 1px #000000;
+}
+
+/* === Scrollbar === */
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* === Animation classes === */
+.scale-up-ver-top {
+    animation: scale-up-ver-top 125ms cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@keyframes scale-up-ver-top {
+    0% {
+        height: 0px;
+    }
+
+    100% {
+        height: 150px;
+    }
+}
+
+.scale-down-ver-top {
+    animation: scale-down-ver-top 125ms cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@keyframes scale-down-ver-top {
+    0% {
+        height: 150px;
+    }
+
+    100% {
+        height: 0px;
+    }
+}
+
+/* === Close new_task.html template === */
+.task-added-to-board {
+    position: absolute;
+    bottom: 0;
+    right: 450px;
+    transform: translateY(500px);
+}
+
+.slide-in {
+    animation: slide-in 125ms cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateY(500px);
+    }
+
+    100% {
+        transform: translateY(-67px);
+    }
+}
+
+.close-new-task {
+    position: absolute;
+    top: 34px;
+    right: 37px;
+    width: 35px;
+}
+
+.close-new-task:hover {
+    cursor: pointer;
+}
+
+/* === Styling main structure === */
+.content-new-task {
+    position: relative;
+    width: 1116px;
+    max-height: calc(100vh - 89px);
+    padding: 65px 75px 0 75px;
+    border-radius: 30px;
+    overflow: auto;
+}
+
+.new-task-form {
+    display: flex;
+    margin-top: 41px;
+    width: 100%;
+    font-size: 21px;
+}
+
+.border {
+    width: 0px;
+    height: 662px;
+    margin: 0 49px;
+    border-right: 1px solid #D1D1D1;
+}
+
+.column {
+    position: relative;
+    width: 432px;
+    height: 506px;
+}
+
+/* === Styling of Input Containers === */
+.field-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14px;
+    position: relative;
+}
+
+.alert-required {
+    font-size: 12px;
+    color: transparent;
+}
+
+/* === Styling of Inputfields Title and Description === */
+.field-container input {
+    width: 100%;
+    height: 51px;
+    border-radius: 10px;
+    margin: 8px 0 8px 0;
+    border: 1px solid #D1D1D1;
+    padding: 18px 21px;
+    font-size: 21px;
+    line-height: 120%;
+}
+
+.field-container input:focus, textarea {
+    outline: none;
+}
+
+.field-container input:hover, textarea {
+    cursor: pointer;
+}
+
+::placeholder, .placeholder {
+    color: #d1d1d1c2;
+}
+
+.field-container textarea {
+    width: 100%;
+    height: 119px;
+    border-radius: 10px;
+    margin: 8px 0 8px 0;
+    border: 1px solid #D1D1D1;
+    padding: 13px 0 0 21px;
+    font-size: 21px;
+    line-height: 120%;
+    font-family: 'Inter', sans-serif;
+    resize: none;
+}
+
+/* === Styling of scrollbars of textarea === */
+textarea::-webkit-scrollbar {
+    display: unset;
+    width: 4px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background: rgb(255, 255, 255);
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background-color: #2A3647;
+    border-radius: 2px;
+}
+
+/* === Styling of dropdown selection input fields === */
+.options-container {
+    width: 100%;
+    border-radius: 10px;
+    margin: 8px 0 8px 0;
+    border: 1px solid #D1D1D1;
+    line-height: 120%;
+    background-color: white;
+}
+
+.select-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dropdown-arrow {
+    object-fit: contain;
+}
+
+.option {
+    padding: 13px 21px 13px 21px;
+}
+
+.option:hover {
+    cursor: pointer;
+}
+
+.options {
+    max-height: 150px;
+    overflow: auto;
+}
+
+/* === Styling of scrollbars for dropdown selection input fields === */
+.options::-webkit-scrollbar {
+    display: unset;
+    width: 4px;
+}
+
+.options::-webkit-scrollbar-track {
+    background: rgb(255, 255, 255);
+}
+
+.options::-webkit-scrollbar-thumb {
+    background-color: #2A3647;
+    border-radius: 2px;
+}
+
+/* === Styling of new category input === */
+.new-category-icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    width: 25px;
+}
+
+.left-pos {
+    right: 55px;
+}
+
+.border-small {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    height: 30px;
+    border: 1px solid #2A3647;
+}
+
+.mid-pos {
+    right: 45px;
+}
+
+.right-pos {
+    right: 15px;
+    filter: invert(1);
+}
+
+.new-category-icon:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.color-selection-container {
+    display: flex;
+}
+
+.color {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: 3px solid white;
+    margin-left: 15px;
+}
+
+.color:hover {
+    cursor: pointer;
+}
+
+.selected-category {
+    display: flex;
+    align-items: center;
+}
+
+.selectable {
+    display: flex;
+    align-items: center;
+
+}
+
+.selectable:hover {
+    background-color: lightgray;
+}
+
+.last-option {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.option-container {
+    display: flex;
+    align-items: center;
+}
+
+.option-left-part {
+    /*width: calc(100% - 100px);*/
+    width: 100%;
+}
+
+.option-right-part {
+    width: 100px;
+    justify-content: center;
+
+}
+
+.delete-category-text {
+    color: #e65252;
+    font-size: 16px;
+    z-index: 3;
+}
+
+.delete-category-text:hover {
+    scale: 1.1;
+}
+
+/* === Styling checkboxes for assignment === */
+.checkbox-contacts {
+    justify-content: space-between;
+}
+
+.checkbox-contacts-unchecked {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12px;
+    height: 12px;
+    margin-right: 10px;
+    background-color: lightgray;
+    border: 2px solid #6e6e6e;
+    border-radius: 3px;
+    box-shadow: 1px 1px 0px 0px rgb(0 0 0 / 75%);
+}
+
+.checkbox-contacts-unchecked:hover {
+    transform: scale(1.05);
+}
+
+.checkbox-contacts-checked {
+    width: 7px;
+    height: 7px;
+    background-color: #2A3647;
+    border-radius: 2px;
+}
+
+.assignments-icons-container {
+    display: flex;
+    color: white;
+    margin: 0 0 16px 0;
+}
+
+.contact-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 22px;
+    margin: 0 3px 0 3px;
+    border: 1px solid white;
+}
+
+/* === Styling of Input type='date' field === */
+::-webkit-datetime-edit {
+    padding: 13px 0;
+}
+
+
+::-webkit-calendar-picker-indicator {
+    background-image: url('../assets/img/calender.svg');
+    background-size: 24px;
+}
+
+::-webkit-calendar-picker-indicator:hover {
+    cursor: pointer;
+}
+
+input[type='date'] {
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 21px;
+    outline: none;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+}
+
+input[type='date']:hover {
+    cursor: pointer;
+}
+
+.calender-icon {
+    position: absolute;
+    top: 10px;
+    bottom: 0;
+    margin: auto 0;
+    width: 20px;
+}
+
+/* === Styling of priority container === */
+.prio-box {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    width: 100%;
+}
+
+.prio-urgent, .prio-medium, .prio-low {
+    width: 145px;
+}
+
+.prio-urgent:hover {
+    cursor: pointer;
+}
+
+.prio-medium:hover {
+    cursor: pointer;
+}
+
+.prio-low:hover {
+    cursor: pointer;
+}
+
+/* === Styling of priority container === */
+.new-subtask-container {
+    position: relative;
+}
+
+.right-pos-no-filter {
+    right: 15px;
+}
+
+.right-pos-no-filter:hover {
+    transform: unset;
+}
+
+.subtask {
+    padding: 8px 5px 8px 10px;
+}
+
+.subtask:hover {
+    background-color: unset;
+}
+
+.checkbox-subtasks {
+    justify-content: left;
+    font-size: 16px;
+}
+
+.checkbox-subtasks-unchecked {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    border: 2px solid #6e6e6e;
+    border-radius: 3px;
+    box-shadow: 1px 1px 0px 0px rgb(0 0 0 / 75%);
+    position: relative;
+    background-color: white;
+}
+
+.checkbox-subtasks-unchecked:hover {
+    cursor: pointer;
+}
+
+.confirm-subtask {
+    position: absolute;
+    left: -3px;
+    bottom: -5px;
+    filter: invert(1);
+}
+
+.delete-subtask-btn {
+    cursor: pointer;
+    width: 20px;
+    margin-left: auto;
+}
+
+/* === Styling of submit/clear button === */
+.button-container {
+    display: flex;
+    justify-content: right;
+}
+
+.clear-form {
+    position: absolute;
+    right: 280px;
+    bottom: 71px;
+    width: 144px;
+    height: 69px;
+    background-image: url('../assets/img/clear_new_task.svg');
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.cancel-form {
+    position: absolute;
+    right: 280px;
+    bottom: 71px;
+    width: 144px;
+    height: 69px;
+    background-image: url('../assets/img/cancel_new_task.svg');
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.cancel-form:hover {
+    cursor: pointer;
+    background-image: url('../assets/img/cancel_new_task_hover.svg');
+    transform: scale(1.025);
+}
+
+.cancel-form:active {
+    background-image: url('../assets/img/cancel_new_task_click.svg');
+}
+
+.submit-button {
+    position: absolute;
+    right: 75px;
+    bottom: 71px;
+    width: 185px;
+    height: 69px;
+    background-image: url('../assets/img/create_task.svg');
+    background-repeat: no-repeat;
+}
+
+.submit-button-header {
+    width: 125px;
+    height: 69px;
+    background-image: url('../assets/img/create_task_mobile.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.submit-button-header:hover {
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    cursor: pointer;
+    background-image: url('../assets/img/create_task_hover.svg');
+}
+
+.submit-button:active {
+    background-image: url('../assets/img/create_task_click.svg');
+}
+
+/* === Styling for smaller Screens === */
+@media (max-width: 1450px) {
+    .new-task-card h1 {
+        margin-bottom: 41px;
+    }
+
+    .content-new-task {
+        max-width: 900px;
+    }
+
+    .new-task-form {
+        display: unset;
+    }
+
+    .border {
+        display: none;
+    }
+
+    .content-new-task {
+        width: 100%;
+    }
+
+    .column {
+        width: 100%;
+        height: unset;
+    }
+
+    .button-container {
+        padding: 20px 0 40px 0;
+    }
+
+    .cancel-form, .submit-button {
+        position: unset;
+        margin-left: 30px;
+    }
+
+    .task-added-to-board {
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    ::-webkit-calendar-picker-indicator {
+        background-size: 18px;
+    }
+}
+
+/* === Styling for smaller screens/tablets === */
+@media (max-width: 992px) {
+    .calender-icon {
+        top: 20px;
+    }
+
+    .mobile-description {
+        display: unset;
+    }
+
+    .new-task-card h1 {
+        font-size: 47px;
+        margin: 20px 0;
+    }
+
+    .container-new-task {
+        width: 100%;
+        height: calc(100vh - 169px);
+        bottom: 80px;
+    }
+
+    .new-task-form {
+        font-size: 16px;
+    }
+
+    .content-new-task {
+        padding: 30px 30px 0 30px;
+        height: calc(100vh - 169px);
+    }
+
+    .field-container input, .field-container textarea, .field-container span {
+        font-size: 16px;
+    }
+
+    .alert-required {
+        height: 0;
+    }
+}
+
+/* === Styling for smartphones === */
+@media (max-width: 505px) {
+
+    .prio-urgent, .prio-medium, .prio-low {
+        width: 100px;
+    }
+
+    .cancel-form {
+        display: none;
+    }
+
+    .prio-box {
+        width: 100%;
+    }
+}
+
+@media (max-width:400px) {
+    .submit-button-header {
+        background-size: contain;
+        height: 2.4em;
+    }
+
+    .container-new-task {
+        height: calc(100vh - 128px);
+    }
+
+    .content-new-task {
+        height: calc(100vh - 96px);
+        padding-top: 3em;
+    }
+
+    .close-new-task {
+        top: 12px;
+        right: 17px;
+    }
+}
+
+@media (max-width: 390px) {
+    .color {
+        margin-left: 5px;
+    }
+
+    .prio-box {
+        height: unset;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .prio-urgent, .prio-medium, .prio-low {
+        width: 145px;
+    }
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link id="apple-fav" rel="apple-touch-icon" sizes="180x180" href="assets/favicon/favicon_dark/apple-touch-icon.png">
+    <link id="32-fav" rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon_dark/favicon-32x32.png">
+    <link id="16-fav" rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon_dark/favicon-16x16.png">
+    <link id="manifest" rel="manifest" href="assets/favicon/favicon_dark/site.webmanifest">
+
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style_general.css">
+    <link rel="stylesheet" href="style/style_new_task.css">
+    <link rel="stylesheet" href="style/style_sidebar.css">
+    <link rel="stylesheet" href="style/style_header.css">
+    <link rel="stylesheet" href="style/style_board.css">
+    <link rel="stylesheet" href="style/fonts.css">
+    <link rel="stylesheet" href="style/mobile_style/m_style_board.css">
+
+    <script src="js/models/contact.class.js"></script>
+    <script src="js/models/task.class.js"></script>
+    <script src="js/models/category.class.js"></script>
+    <script src="js/models/subtask.class.js"></script>
+
+    <script src="js/templates_board.js"></script>
+    <script src="js/board_edit_task.js"></script>
+    <script src="js/add_task_mobile.js"></script>
+
+    <script src="script.js"></script>
+    <script src="mini_backend.js"></script>
+    <script src="include.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/contacts.js"></script>
+    <script src="js/entrance_area.js"></script>
+
+
+    <script src="js/add_task/create_new_task.js"></script>
+    <script src="js/add_task/create_new_category.js"></script>
+    <script src="js/add_task/assign_contact.js"></script>
+    <script src="js/add_task/add_priority.js"></script>
+    <script src="js/add_task/add_subtask.js"></script>
+    <script src="js/add_task/templates.js"></script>
+    <script src="js/add_task/add_task.js"></script>
+    <script src="js/add_task/push_and_save_task.js"></script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board</title>
+
+</head>
+
+<body onload="initBoard()">
+
+    <div class="body2 ovflow-hidden">
+
+        <!-- NAVBAR -->
+        <div id="mobile-d-none" class="mobile-d-none" include-html="./templates/sidebar.html"></div>
+
+        <div id="main" class="main">
+            <div class="content slide-board-scroll">
+                <div id="new-task-shadow-screen" class="shadow-screen d-none">
+                    <div id="new-task-overlay" class="general-overlay">
+                    </div>
+                </div>
+                <!-- HEADER -->
+                <div include-html="./templates/header.html"></div>
+
+                <!-- MAIN CONTENT -->
+                <div id="board-add-task"></div>
+                <div id="board-outer-div" class="board-outer-div">
+                    <div class="board">
+                        <div class="board-head-div">
+                            <span class="kanban-mobile-span">Kanban Project Management Tool</span>
+                            <div class="mobile-headline-div">
+                                <h1>Board</h1>
+                                <div onclick="showNewTaskCard()" class="add-task-btn-mobile">
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="board-input-div">
+                                    <div class="input-img">
+                                        <div class="input-img-inner">
+                                            <img src="assets/img/loup.svg">
+                                        </div>
+                                    </div>
+                                    <input id="find-task" type="text" placeholder="Find Task" class="board-input"
+                                        onkeyup="findTask()">
+                                </div>
+                                <div onclick="showNewTaskCard()" class="add-task-btn">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-board-scroll cards-slide-div">
+                        <div class="cards-div">
+
+                            <div class="cards-column-main ">
+
+                                <div class="cards-category">
+                                    <span>To do</span>
+                                    <div class="plus-btn" onclick="showNewTaskCard()"></div>
+                                </div>
+
+                                <div class="card-column" id="todo" ondrop="moveTo('todo')"
+                                    ondragover="allowDrop(event)">
+                                </div>
+
+                                <div ondragover="allowDrop(event)" ondrop="moveTo('todo')" id="todo-drop-help"
+                                    class="drop-help-div d-none"></div>
+                            </div>
+
+                            <div class="cards-column-main">
+
+                                <div class="cards-category">
+                                    <span>In progress</span>
+                                    <div class="plus-btn" onclick="addTaskToStatusProgress()"></div>
+                                </div>
+
+                                <div class="card-column" id="progress" ondrop="moveTo('progress')"
+                                    ondragover="allowDrop(event)">
+                                </div>
+
+                                <div ondragover="allowDrop(event)" ondrop="moveTo('progress')" id="progress-drop-help"
+                                    class="drop-help-div d-none">
+                                </div>
+                            </div>
+
+                            <div class="cards-column-main">
+
+                                <div class="cards-category">
+                                    <span>Awaiting Feedback</span>
+                                    <div class="plus-btn" onclick="addTaskToStatusFeedback()"></div>
+                                </div>
+
+                                <div class="card-column" id="feedback" ondrop="moveTo('feedback')"
+                                    ondragover="allowDrop(event)">
+                                </div>
+
+                                <div ondragover="allowDrop(event)" ondrop="moveTo('feedback')" id="feedback-drop-help"
+                                    class="drop-help-div d-none"></div>
+                            </div>
+
+                            <div class="cards-column-main">
+
+                                <div class="cards-category">
+                                    <span>Done</span>
+                                    <div class="plus-btn" onclick="addTaskToStatusDone()"></div>
+                                </div>
+                                <div class="card-column" id="done" ondrop="moveTo('done')"
+                                    ondragover="allowDrop(event)">
+                                </div>
+
+                                <div ondragover="allowDrop(event)" ondrop="moveTo('done')" id="done-drop-help"
+                                    class="drop-help-div d-none"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="detail-view-shadow-screen" class="d-none shadow-screen">
+            <div id="detail-view-overlay" class="general-overlay">
+                <div id="detailView" class="detail-view"></div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

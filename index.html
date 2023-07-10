@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join</title>
+
+    <link id="apple-fav" rel="apple-touch-icon" sizes="180x180" href="assets/favicon/favicon_dark/apple-touch-icon.png">
+    <link id="32-fav" rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon_dark/favicon-32x32.png">
+    <link id="16-fav" rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon_dark/favicon-16x16.png">
+    <link id="manifest" rel="manifest" href="assets/favicon/favicon_dark/site.webmanifest">
+
+    <script src="script.js"></script>
+    <script src="mini_backend.js"></script>
+    <script src="include.js"></script>
+    <script src="js/summary.js"></script>
+    <script src="js/entrance_area.js"></script>
+    <script src="js/add_task/push_and_save_task.js"></script>
+
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style_general.css">
+    <link rel="stylesheet" href="style/fonts.css">
+    <link rel="stylesheet" href="style/signUp.css">
+    <link rel="stylesheet" href="style/forgot_password.css">
+</head>
+
+<body onload="load()">
+
+    <div class="main-login-container" id="main-login-container">
+        <img src="./assets/img/join-logo.png" id="join-logo" class="fade-in">
+        <div include-html="./templates/log_in.html"></div>
+        <div id="forgotPw" include-html="./templates/forgot_password.html" style="display: none;"></div>
+        <div id="signUp" include-html="./templates/sign_up.html" style="display: none;"></div>
+    </div>
+
+    <div class="resetMain">
+        <div id="resetPWackknowledge" class="resetPWackknowledge">
+            <span>An email has been sent to you</span>
+        </div>
+    </div>
+
+    <div class="resetMain-reset">
+        <div id="signUpSingle" class="resetPW">
+            <span>Successfully signed up</span>
+        </div>
+    </div>
+
+</body>
+
+</html>

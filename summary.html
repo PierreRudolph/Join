@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link id="apple-fav" rel="apple-touch-icon" sizes="180x180" href="assets/favicon/favicon_dark/apple-touch-icon.png">
+    <link id="32-fav" rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon_dark/favicon-32x32.png">
+    <link id="16-fav" rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon_dark/favicon-16x16.png">
+    <link id="manifest" rel="manifest" href="assets/favicon/favicon_dark/site.webmanifest">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+
+    <script src="js/models/task.class.js"></script>
+    <script src="js/models/category.class.js"></script>
+    <script src="js/models/subtask.class.js"></script>
+
+    <script src="mini_backend.js"></script>
+    <script src="script.js"></script>
+    <script src="include.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/entrance_area.js"></script>
+    <script src="js/summary.js"></script>
+    <script src="js/add_task/push_and_save_task.js"></script>
+
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style_general.css">
+    <link rel="stylesheet" href="style/style_sidebar.css">
+    <link rel="stylesheet" href="style/style_header.css">
+    <link rel="stylesheet" href="style/style_summary.css">
+    <link rel="stylesheet" href="style/fonts.css">
+</head>
+
+<body onload="initSummary()">
+
+    <div class="body2">
+        <!-- NAVBAR -->
+        <div include-html="./templates/sidebar.html"></div>
+
+        <div class="content">
+            <!-- HEADER -->
+            <div include-html="./templates/header.html"></div>
+
+            <!-- MAIN CONTENT -->
+            <!-- Summary -->
+
+            <div class="main">
+                <div class="summary-outer-div">
+                    <div class="heading-container">
+                        <h1>Summary</h1>
+                        <div class="grafic-line"></div>
+                        <span class="subheading">Everything in a nutshell!</span>
+                    </div>
+                    <div class="main-container">
+
+                        <div class="summary-container">
+                            <div class="row">
+                                <a class="col-1" href="board.html">
+                                    <div id="tasks-in-board" class="bold">0</div>
+                                    <span>Tasks in<br>board</span>
+                                </a>
+                                <a class="col-1" href="board.html">
+                                    <div id="tasks-in-progress" class="bold">0</div>
+                                    <span>Tasks in<br>progress</span>
+                                </a>
+                                <a class="col-1" href="board.html">
+                                    <div id="tasks-in-feedback" class="bold">0</div>
+                                    <span>Awaiting<br>feedback</span>
+                                </a>
+                            </div>
+
+                            <div class="row">
+                                <a class="col-3" href="board.html">
+                                    <div class="urgent-tasks">
+                                        <div class="urgent-icon"></div>
+                                        <div>
+                                            <div id="tasks-urgent" class="bold">0</div>
+                                            <span>Urgent</span>
+                                        </div>
+                                    </div>
+                                    <div class="urgent-tasks separation"></div>
+                                    <div class="urgent-tasks">
+                                        <div id="tasks-urgent-date" class="urgentDate">No urgent tasks</div>
+                                        <div>Upcoming deadline</div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="row">
+                                <a class="col-2" href="board.html">
+                                    <div class="pencil-image"></div>
+                                    <div>
+                                        <div id="tasks-to-do" class="bold">0</div>
+                                        <span>To-do</span>
+                                    </div>
+                                </a>
+                                <a class="col-2" href="board.html">
+                                    <div class="tick-image"></div>
+                                    <div>
+                                        <div id="tasks-done" class="bold">0</div>
+                                        <span>Done</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="side-container">
+                            <div>Good
+                                <div id="daytime-greeting">morning</div>,
+                            </div>
+                            <span id="user-greeting" class="user-greeting">guest</span>
+                        </div>
+
+                        <div id="greet-div" class="side-container-mobile d-none-imp">
+                            <div class="greet-text">Good
+                                <div id="daytime-greeting-mobile">morning</div>,
+                            </div>
+
+                            <span id="user-greeting-mobile" class="user-greeting">guest</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>

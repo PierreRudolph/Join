@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link id="apple-fav" rel="apple-touch-icon" sizes="180x180" href="assets/favicon/favicon_dark/apple-touch-icon.png">
+    <link id="32-fav" rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon_dark/favicon-32x32.png">
+    <link id="16-fav" rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon_dark/favicon-16x16.png">
+    <link id="manifest" rel="manifest" href="assets/favicon/favicon_dark/site.webmanifest">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+
+    <script src="js/models/contact.class.js"></script>
+    <script src="js/models/category.class.js"></script>
+    <script src="js/models/task.class.js"></script>
+    <script src="js/models/subtask.class.js"></script>
+
+    <script src="script.js"></script>
+    <script src="mini_backend.js"></script>
+    <script src="js/board.js"></script>
+    <script src="include.js"></script>
+    <script src="js/contacts.js"></script>
+
+    <script src="js/contacts_2.js"></script>
+    <script src="js/add_task_mobile.js"></script>
+
+    <script src="js/add_task/create_new_task.js"></script>
+    <script src="js/add_task/create_new_category.js"></script>
+    <script src="js/add_task/assign_contact.js"></script>
+    <script src="js/add_task/add_priority.js"></script>
+    <script src="js/add_task/add_subtask.js"></script>
+    <script src="js/add_task/templates.js"></script>
+    <script src="js/add_task/add_task.js"></script>
+    <script src="js/add_task/push_and_save_task.js"></script>
+
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style_general.css">
+    <link rel="stylesheet" href="style/style_sidebar.css">
+    <link rel="stylesheet" href="style/style_header.css">
+    <link rel="stylesheet" href="style/style_contacts.css">
+    <link rel="stylesheet" href="style/style_add_contact.css">
+    <link rel="stylesheet" href="style/style_new_task.css">
+    <link rel="stylesheet" href="style/fonts.css">
+    <link rel="stylesheet" href="style/mobile_style/m_style_contacts.css">
+</head>
+
+<body onload="initContacts()">
+
+    <div class="body2 ovflow-hidden">
+        <!-- <div id="shadow-screen" class="shadow-screen d-none">
+            <div id="center-new-task-card" class="general-overlay">
+            </div>
+        </div> -->
+        <!-- NAVBAR -->
+        <div id="mobile-d-none" include-html="./templates/sidebar.html"></div>
+
+        <div class="content">
+            <!-- HEADER -->
+            <div include-html="./templates/header.html"></div>
+
+            <!-- MAIN CONTENT -->
+            <div id="contacts-add-task"></div>
+            <div id="contacts-outer-div" class="contacts-outer-div">
+                <div id="contact-created-message" class="contact-created-message  d-none">Contact succesfully
+                    created</div>
+                <div class="slide-bar-scroll">
+                    <div id="contacts-slide-bar" class="contacts-slide-bar">
+                        <div class="mobile-button-div">
+                            <button class="btn-dark new-contact new-contact-mobile" type="submit"
+                                onclick="openAddOverlay()">
+                                <div class="btn-settings">
+                                    <span>New Contact</span>
+                                    <img src="assets/img/new_contact.svg" alt="new contact icon">
+                                </div>
+                            </button>
+                        </div>
+
+                        <div id="cards-main-A" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>A</span></div>
+                            <div class="cards-div" id="cards-div-A"></div>
+                        </div>
+                        <div id="cards-main-B" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>B</span></div>
+                            <div class="cards-div" id="cards-div-B"></div>
+                        </div>
+                        <div id="cards-main-C" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>C</span></div>
+                            <div class="cards-div" id="cards-div-C"></div>
+                        </div>
+                        <div id="cards-main-D" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>D</span></div>
+                            <div class="cards-div" id="cards-div-D"></div>
+                        </div>
+                        <div id="cards-main-E" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>E</span></div>
+                            <div class="cards-div" id="cards-div-E"></div>
+                        </div>
+                        <div id="cards-main-F" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>F</span></div>
+                            <div class="cards-div" id="cards-div-F"></div>
+                        </div>
+                        <div id="cards-main-G" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>G</span></div>
+                            <div class="cards-div" id="cards-div-G"></div>
+                        </div>
+                        <div id="cards-main-H" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>H</span></div>
+                            <div class="cards-div" id="cards-div-H"></div>
+                        </div>
+                        <div id="cards-main-I" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>I</span></div>
+                            <div class="cards-div" id="cards-div-I"></div>
+                        </div>
+                        <div id="cards-main-J" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>J</span></div>
+                            <div class="cards-div" id="cards-div-J"></div>
+                        </div>
+                        <div id="cards-main-K" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>K</span></div>
+                            <div class="cards-div" id="cards-div-K"></div>
+                        </div>
+                        <div id="cards-main-L" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>L</span></div>
+                            <div class="cards-div" id="cards-div-L"></div>
+                        </div>
+                        <div id="cards-main-M" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>M</span></div>
+                            <div class="cards-div" id="cards-div-M"></div>
+                        </div>
+                        <div id="cards-main-N" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>N</span></div>
+                            <div class="cards-div" id="cards-div-N"></div>
+                        </div>
+                        <div id="cards-main-O" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>O</span></div>
+                            <div class="cards-div" id="cards-div-O"></div>
+                        </div>
+                        <div id="cards-main-P" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>P</span></div>
+                            <div class="cards-div" id="cards-div-P"></div>
+                        </div>
+                        <div id="cards-main-Q" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>Q</span></div>
+                            <div class="cards-div" id="cards-div-Q"></div>
+                        </div>
+                        <div id="cards-main-R" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>R</span></div>
+                            <div class="cards-div" id="cards-div-R"></div>
+                        </div>
+                        <div id="cards-main-S" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>S</span></div>
+                            <div class="cards-div" id="cards-div-S"></div>
+                        </div>
+                        <div id="cards-main-T" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>T</span></div>
+                            <div class="cards-div" id="cards-div-T"></div>
+                        </div>
+                        <div id="cards-main-U" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>U</span></div>
+                            <div class="cards-div" id="cards-div-U"></div>
+                        </div>
+                        <div id="cards-main-V" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>V</span></div>
+                            <div class="cards-div" id="cards-div-V"></div>
+                        </div>
+                        <div id="cards-main-W" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>W</span></div>
+                            <div class="cards-div" id="cards-div-W"></div>
+                        </div>
+                        <div id="cards-main-X" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>X</span></div>
+                            <div class="cards-div" id="cards-div-X"></div>
+                        </div>
+                        <div id="cards-main-Y" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>Y</span></div>
+                            <div class="cards-div" id="cards-div-Y"></div>
+                        </div>
+                        <div id="cards-main-Z" class="cards-div-main d-none">
+                            <div class="cards-div-letter"><span>Z</span></div>
+                            <div class="cards-div" id="cards-div-Z"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="contacts-right-div" class="contacts-right-div right-div-mobile">
+                    <div class="contacts-head">
+                        <img onclick="hideMobileBigCard()" class="mobile-arrow-left"
+                            src="assets/img/arrow-left-contacts.svg">
+                        <span class="kanban-mobile-span">Kanban Project Management Tool</span>
+                        <h1>Contacts</h1>
+                        <div class="contacts-bar-img"><img src="assets/img/blue-bar.svg"></div>
+                        <span>Better with a team</span>
+                        <div class="mobile-blue-bar"><img src="assets/img/blue_underline.png"></div>
+                    </div>
+
+                    <div id="big-card-0" class="contacts-big-card slide-right d-none">
+
+                        <div class="big-card-head">
+                            <div id="big-card-initials-bg" class="contact-initials-big">
+                                <span id="big-card-initials"></span>
+                            </div>
+                            <div class="big-card-name-div">
+                                <div>
+                                    <span class="big-card-name" id="big-card-firstname"></span>
+                                    <span class="big-card-name" id="big-card-lastname"></span>
+                                </div>
+                                <div id="open-add-task" onclick="showNewTaskCard('')" class="big-card-add-task">
+                                    <div class="big-card-plus-img">
+                                        <img src="assets/img/plus-blue-no-border.svg">
+                                    </div>
+                                    <span>Add Task</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="big-card-info">
+                            <span>Contact Information</span>
+                            <div id="edit-contact" class="edit-contact" onclick="openEditOverlay()">
+                                <div class="pencil-img"></div><span>Edit Contact</span>
+                            </div>
+                        </div>
+                        <div class="big-card-mail-phone">
+                            <div class="mail-phone">
+                                <span>Email</span>
+                                <a style="text-decoration-line: none;" href="#" id="big-card-email"></a>
+                            </div>
+                            <div class="mail-phone">
+                                <span>Phone</span>
+                                <span id="big-card-phone"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="mobile-edit-contact" class="mobile-edit-contact-btn" onclick="openEditOverlay()"></div>
+                    <button class="btn-dark new-contact mobile-d-none" type="submit" onclick="openAddOverlay()">
+                        <div class="btn-settings">
+                            <span>New Contact</span>
+                            <img src="assets/img/new_contact.svg" alt="new contact icon">
+                        </div>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- TEMPLATE ADD/EDIT CONTACT -->
+        <div id="new-task-shadow-screen" class="d-none shadow-screen">
+            <div id="new-task-overlay" class="general-overlay">
+            </div>
+        </div>
+
+        <div id="add-contact-shadow-screen" class="d-none shadow-screen">
+            <div id="add-contact-overlay" class="general-overlay">
+                <div include-html="./templates/add_contact.html"></div>
+            </div>
+        </div>
+
+        <div id="edit-contact-shadow-screen" class="d-none shadow-screen">
+            <div id="edit-contact-overlay" class="general-overlay">
+                <div include-html="./templates/edit_contact.html"></div>
+            </div>
+        </div>
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<div class="signup" id="signup_button">
+    <p>Not a Join user?</p>
+    <button class="signup_button" onclick="showSignUpCloseOther()">Sign up</button>
+</div>
+<form onsubmit="login(); return false" id="login-container" class="login-container fade-in-login">
+    <h1>Log in</h1>
+    <img src="assets/img/blue_underline.png" id="blue_underline">
+    <div class="credentials">
+        <input id="login-email" type="email" name="email" placeholder="Email" autocomplete="email" required>
+        <input id="login-password" type="password" name="password" placeholder="Password"
+            autocomplete="current-password" required>
+    </div>
+    <div class="remember_me_forgotten">
+        <div class="remember_me">
+            <input class="checkbox remember-me-checkbox" type="checkbox" id="remember-me" name="remember-me">
+            <label for="remember-me">Remember me</label>
+        </div>
+        <a class="password_forgotten" href="#" onclick="showForgotPwCloseOther()">Forgot my password</a>
+    </div>
+    <div class="login_form_buttons">
+        <button type="submit" class="login_button">Log in</button>
+        <button class="guest_button" id="guest_button" type="button" onclick="guestLogin()">Guest Log in</button>
+    </div>
+    <div id="error-login" class="error-login"></div>
+</form>
