@@ -249,27 +249,11 @@ function setNewTodoIds() {
  * variable gets the value of the id of the current task card.
  * @param {number} id id of the current task card.
  */
-function startDragging(id) {
+function startDragging(id, position) {
     currentDraggedElement = id;
     setTimeout(() => {
-        hideCardColumnDivs(id);
-        showDropableSpace();
+        showDropableSpace(position);
     }, 50); // Timout to avoid Bug
-}
-
-
-/**
- * The function hides all Cards that are not currently dragged.
- * 
- * @param {number} id - id of the current task card
- */
-function hideCardColumnDivs(id) {
-    for (let i = 0; i < todos.length; i++) {
-        const divId = todos[i].id;
-        if (divId !== id) {
-            document.getElementById(divId).classList.add('d-none');
-        }
-    }
 }
 
 
@@ -458,15 +442,23 @@ function eventListenerMoveBtn(event) {
 /**
  * This function removes d-none Class from all Droppable-Space divs.
  */
-function showDropableSpace() {
+function showDropableSpace(position) {
     let todoDropHelp = document.getElementById('todo-drop-help');
     let progressDropHelp = document.getElementById('progress-drop-help');
-    let doneDropHelp = document.getElementById('feedback-drop-help');
-    let feedbackDropHelp = document.getElementById('done-drop-help');
-    todoDropHelp.classList.remove('d-none');
-    progressDropHelp.classList.remove('d-none');
-    doneDropHelp.classList.remove('d-none');
-    feedbackDropHelp.classList.remove('d-none');
+    let doneDropHelp = document.getElementById('done-drop-help');
+    let feedbackDropHelp = document.getElementById('feedback-drop-help');
+    if (position !== 'todo') {
+        todoDropHelp.classList.remove('d-none');
+    }
+    if (position !== 'progress') {
+        progressDropHelp.classList.remove('d-none');
+    }
+    if (position !== 'feedback') {
+        feedbackDropHelp.classList.remove('d-none');
+    }
+    if (position !== 'done') {
+        doneDropHelp.classList.remove('d-none');
+    }
 }
 
 
@@ -474,7 +466,6 @@ function showDropableSpace() {
  * This function add d-none Class from all Droppable-Space divs.
  */
 function hideDropableSpace() {
-    showCardColumnDivs();
     let todoDropHelp = document.getElementById('todo-drop-help');
     let progressDropHelp = document.getElementById('progress-drop-help');
     let doneDropHelp = document.getElementById('feedback-drop-help');
@@ -483,15 +474,4 @@ function hideDropableSpace() {
     progressDropHelp.classList.add('d-none');
     doneDropHelp.classList.add('d-none');
     feedbackDropHelp.classList.add('d-none');
-}
-
-
-/**
- * This function remove Class d-none from all Card-Column divs.
- */
-function showCardColumnDivs() {
-    for (let i = 0; i < todos.length; i++) {
-        const divId = todos[i].id;
-        document.getElementById(divId).classList.remove('d-none');
-    }
 }

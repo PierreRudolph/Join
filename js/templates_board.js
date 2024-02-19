@@ -11,10 +11,10 @@
  * @returns 
  */
 function generateHTMLTaskCard(element) {
-
+    let position = toString(element.status);
     return /*html*/ `
     <div class="card" id="${element.id}" draggable="true" onclick="showTaskCard(${element.id})"
-    ondragstart="startDragging(${element.id})" ondragend="hideDropableSpace()">
+    ondragstart="startDragging(${element.id},${position})" ondragend="hideDropableSpace()">
     <div class="card-name ${element.category.color}">${element.category.title}</div>
     <div class="card-text">
         <span class="card-headline">${element.title}</span>
@@ -45,6 +45,12 @@ function generateHTMLTaskCardAssignments(assignments, element, firstUserIcon) {
         </div>
         `;
 }
+
+
+function toString(noString) {
+    return "'" + noString + "'";
+}
+
 
 /**
  * This function generates the html for the detail card when a task card is clicked at the board.
